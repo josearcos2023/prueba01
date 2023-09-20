@@ -1,0 +1,96 @@
+{% extends "./base.html" %}
+
+{% block title %}
+  Gestion de colegios
+{% endblock  %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <h1>Inserción de Colegios</h1>
+        
+        <!-- Formulario -->
+        <!-- <div class="card">
+            <div class="card-body">
+                <form action="/edicionColegio/" method="POST">
+                {% csrf_token %}
+                <div class="form-group py-2">
+                    <input type="text" name="codColegio" id="codColegio" class="form-control" placeholder="Código" minlength="6" maxlength="6" required>
+                </div>
+                <div class="form-group py-2">
+                    <input type="text" name="nomColegio" id="nomColegio" class="form-control" placeholder="Nombre" maxlength="50" required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success btn-block text-white">Registrar</button>
+                </div>
+                </form>
+            </div>
+        </div> -->
+        <!-- -------------------------------------------------------- -->
+
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Nuevo colegio
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Nuevo colegio</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="/registrarColegio/" method="POST">
+                {% csrf_token %}
+                <div class="form-group py-2">
+                    <input type="text" name="codColegio" id="codColegio" class="form-control" placeholder="Código" minlength="6" maxlength="6" required>
+                </div>
+                <div class="form-group py-2">
+                    <input type="text" name="nomColegio" id="nomColegio" class="form-control" placeholder="Nombre" maxlength="50" required>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success text-white">Registrar</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- --------------------------------------------- -->
+</div>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h1>Listado de Colegios</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <!-- <th>Ubigeo</th> -->
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in colegios %}
+                    <tr>
+                        <td>{{ x.codigo }}</td>
+                        <td>{{ x.nombre }}</td>
+                        <!-- <td>{{ x.ubigeo }}</td> -->
+                        <td><a href="edicionColegio/{{x.codigo}}" class="btn btn-sm btn-primary">Editar</a></td>
+                        <td><a href="eliminarColegio/{{x.codigo}}" class="btn btn-sm btn-danger">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>    
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

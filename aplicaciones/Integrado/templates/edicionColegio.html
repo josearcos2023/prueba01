@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+{% block title %} Gestión de Colegios {% endblock %}
+
+
+
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h1>Inserción de Colegios</h1>
+        <div class="card">
+            <div class="card-body">
+                <form action="/editarColegio/" method="POST">
+                {% csrf_token %}
+                <div class="form-group py-2">
+                    <input type="text" value="{{colegio.codigo}}" name="codColegio" id="codColegio" class="form-control" placeholder="Código" minlength="6" maxlength="6" required readonly>
+                </div>
+                <div class="form-group py-2">
+                    <input type="text" name="nomColegio" id="nomColegio" class="form-control" placeholder="Nombre" maxlength="50" required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-success btn-block text-white">Registrar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
