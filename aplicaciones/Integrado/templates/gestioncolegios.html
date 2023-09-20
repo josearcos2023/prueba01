@@ -51,7 +51,7 @@
                     <input type="text" name="nomColegio" id="nomColegio" class="form-control" placeholder="Nombre" maxlength="50" required>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="submit" class="btn btn-success text-white">Registrar</button>
                 </div>
             </form>
@@ -80,7 +80,7 @@
                         <td>{{ x.nombre }}</td>
                         <!-- <td>{{ x.ubigeo }}</td> -->
                         <td><a href="edicionColegio/{{x.codigo}}" class="btn btn-sm btn-primary">Editar</a></td>
-                        <td><a href="eliminarColegio/{{x.codigo}}" class="btn btn-sm btn-danger">Eliminar</a></td>
+                        <td><a href="eliminarColegio/{{x.codigo}}" class="btn btn-sm btn-danger btnEliminacion">Eliminar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
